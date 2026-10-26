@@ -1,0 +1,61 @@
+VETU - SISTEMA DE GESTION VETERINARIA (PROYECTO UTU)
+====================================================
+
+REQUISITOS
+- Windows 10/11
+- JDK 17 o superior (incluye javac)
+- XAMPP con MySQL/MariaDB
+- Visual Studio Code (opcional para editar; no es requisito para ejecutar)
+
+INSTALACION DESDE CERO
+1. Extraer toda la carpeta VeterinariaUTU en Documentos o Escritorio.
+2. Abrir XAMPP Control Panel e iniciar MySQL.
+3. Entrar en http://localhost/phpmyadmin
+4. Abrir Importar y elegir sql/veterinaria_db.sql.
+5. Confirmar que se creó veterinaria_db con las tablas duenos, mascotas,
+   veterinarios, citas, consultas, vacunas y mascota_vacunas.
+6. Abrir la carpeta VeterinariaUTU desde VS Code: Archivo > Abrir carpeta.
+7. Ejecutar PROBAR_CONEXION.bat. Debe indicar que la conexión fue correcta.
+8. Ejecutar ABRIR_VETERINARIA.bat para abrir el programa gráfico.
+
+ABRIR Y CERRAR
+- Para abrir: doble clic en ABRIR_VETERINARIA.bat.
+- Para cerrar: usar la X de la ventana y confirmar la salida.
+- Los registros se guardan en MySQL; cerrar la ventana no borra datos.
+
+ESTRUCTURA DEL CÓDIGO
+src/Main.java                Inicio y ventana principal Swing con pestañas CRUD.
+src/DB.java                  Configuración de conexión JDBC central para la app.
+src/PruebaConexion.java      Prueba de conexión para diagnóstico.
+src/modelo/                  Clases de dominio: Dueno, Mascota, Veterinario,
+                              Cita, Consulta, Vacuna y MascotaVacuna.
+src/dao/BaseDAO.java         Operaciones comunes con PreparedStatement.
+src/dao/DuenoDAO.java        DAO para dueños.
+src/dao/MascotaDAO.java      DAO para mascotas.
+src/dao/VeterinarioDAO.java  DAO para veterinarios.
+src/dao/CitaDAO.java         DAO para citas.
+src/dao/ConsultaDAO.java     DAO para consultas.
+src/dao/VacunaDAO.java       DAO para vacunas.
+src/dao/MascotaVacunaDAO.java DAO para aplicaciones de vacunas.
+src/servicio/ServicioCRUD.java Capa sencilla para validar operaciones CRUD.
+sql/veterinaria_db.sql       Esquema relacional e inserción inicial de vacunas.
+lib/                         Conector MySQL y FlatLaf.
+
+BASE DE DATOS
+La configuración predeterminada es host localhost, puerto 3306, base veterinaria_db,
+usuario root y contraseña vacía, que es la configuración habitual de XAMPP. Si la
+configuración de tu PC es distinta, se puede configurar con variables de entorno:
+VETU_DB_URL, VETU_DB_USER y VETU_DB_PASSWORD.
+
+FUNCIONES DISPONIBLES EN LA VENTANA
+La ventana permite listar, crear, modificar y eliminar filas en las tablas del sistema.
+Los campos relacionados (por ejemplo mascota_id) deben apuntar a registros existentes.
+Las claves foráneas impiden borrar dueños/mascotas/veterinarios que tengan datos asociados.
+Las fechas se escriben en formato AAAA-MM-DD y fecha-hora en formato AAAA-MM-DD HH:MM:SS.
+
+IMPORTANTE SOBRE LA ARQUITECTURA
+El proyecto incluye entidades, DAO específicos, una clase BaseDAO y un servicio CRUD.
+La pantalla gráfica actual realiza las operaciones de tabla con JDBC directamente y todavía
+no delega todas las acciones en los DAO/ServicioCRUD. Si el docente exige estrictamente que
+la interfaz use patrón MVC/DAO de punta a punta, ese refactor debe realizarse antes de entregar.
+No afirmar que se probó contra tu MySQL local hasta ejecutar PROBAR_CONEXION.bat en tu PC.

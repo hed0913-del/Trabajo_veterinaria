@@ -1,0 +1,8 @@
+VERIFICACION DEL PROYECTO
+========================
+- Compilación: comprobada con javac 21.0.12.1 en el entorno de preparación.
+- Fuentes incluidas: Main.java, DB.java, PruebaConexion.java, DAO, modelo y servicio.
+- Conexión real a XAMPP: pendiente de ejecutar en la computadora del estudiante.
+- Interfaz gráfica: se abre después de compilar y conectar a MySQL.
+- Importación SQL: debe realizarse una vez desde phpMyAdmin.
+- Recomendación: ejecutar primero PROBAR_CONEXION.bat y resolver cualquier error antes de iniciar la interfaz.

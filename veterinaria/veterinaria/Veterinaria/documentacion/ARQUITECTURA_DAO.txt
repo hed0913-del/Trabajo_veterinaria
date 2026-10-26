@@ -1,0 +1,22 @@
+CAPA DAO (Data Access Object)
+============================
+
+Los DAO separan las operaciones de acceso a MySQL de las pantallas.
+Cada clase específica hereda de dao.BaseDAO y ofrece:
+- listarTodos()
+- buscarPorId(id)
+- insertar(Map<String,Object>)
+- actualizar(id, Map<String,Object>)
+- eliminar(id)
+
+DAO incluidos:
+- DuenoDAO -> duenos
+- MascotaDAO -> mascotas
+- VeterinarioDAO -> veterinarios
+- CitaDAO -> citas
+- ConsultaDAO -> consultas
+- VacunaDAO -> vacunas
+- MascotaVacunaDAO -> mascota_vacunas
+
+IMPORTANTE:
+La interfaz gráfica que ya existe conserva sus operaciones SQL propias; esta capa DAO queda disponible como arquitectura separada para usarla desde servicios/controladores. La contraseña por defecto está configurada para XAMPP típico (usuario root sin contraseña). Si tu MySQL tiene contraseña, ajustá BaseDAO.java.

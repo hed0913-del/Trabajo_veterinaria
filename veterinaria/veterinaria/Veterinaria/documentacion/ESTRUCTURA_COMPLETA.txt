@@ -1,0 +1,30 @@
+PROYECTO VETU - ESTRUCTURA DE REFERENCIA
+========================================
+
+src/
+  Main.java                  Punto de entrada e interfaz Swing existente.
+  PruebaConexion.java        Programa de prueba de conectividad.
+  dao/
+    BaseDAO.java             Operaciones CRUD genéricas con PreparedStatement.
+    DuenoDAO.java            Acceso a la tabla duenos.
+    MascotaDAO.java          Acceso a la tabla mascotas.
+    VeterinarioDAO.java      Acceso a la tabla veterinarios.
+    CitaDAO.java             Acceso a la tabla citas.
+    ConsultaDAO.java         Acceso a la tabla consultas.
+    VacunaDAO.java           Acceso a la tabla vacunas.
+    MascotaVacunaDAO.java    Acceso a la tabla mascota_vacunas.
+  modelo/
+    Dueno.java, Mascota.java, Veterinario.java, Cita.java,
+    Consulta.java, Vacuna.java, MascotaVacuna.java
+  servicio/
+    ServicioCRUD.java        Fachada para validaciones y operaciones de negocio.
+
+sql/veterinaria_db.sql       Esquema y tablas con claves foráneas.
+lib/                         Conector MySQL y FlatLaf.
+build/                       Clases compiladas generadas localmente.
+
+NOTA HONESTA:
+- Las entidades modelo y la capa ServicioCRUD están preparadas como estructura de proyecto.
+- La interfaz Swing actual todavía usa consultas SQL genéricas directamente; integrar cada pantalla con su DAO/servicio es una mejora pendiente.
+- Para probar el funcionamiento real se requiere iniciar MySQL en XAMPP e importar sql/veterinaria_db.sql.
+- Credenciales por defecto: usuario root y contraseña vacía. Cambiar en DB si tu instalación usa otra contraseña.
